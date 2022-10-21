@@ -1,0 +1,23 @@
+---
+dependency:
+  name: galaxy
+driver:
+  name: docker
+platforms:
+  - name: centos_8
+    image: quay.io/centos/centos:stream8
+    pre_build_image: true
+  - name: ubuntu_18
+    image: docker.io/ubuntu:18.04
+    pre_build_image: false
+  - name: debian
+    image: docker.io/debian
+    pre_build_image: false
+provisioner:
+  name: ansible
+verifier:
+  name: ansible
+lint: |
+  set -e
+  yamllint .
+  ansible-lint
