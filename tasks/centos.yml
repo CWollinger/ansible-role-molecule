@@ -1,0 +1,5 @@
+- name: Create file /tmp/ansible_role.txt with content
+  ansible.builtin.copy:
+    content: 'Hello CentOS'
+    dest: /tmp/ansible_role.txt
+    mode: 0644
