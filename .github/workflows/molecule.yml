@@ -23,6 +23,7 @@ jobs:
           ls -ltr
           python3 -m pip install --upgrade pip
           python3 -m pip install -r requirements.txt
+        working-directory: molecule_demo
       - name: Test with molecule
         run: |
           molecule test
