@@ -7,16 +7,16 @@ jobs:
   test:
     runs-on: ubuntu-latest
     strategy:
-      max-parallel: 4
       matrix:
         python-version:
           - 3.8
           - 3.9
+          - 3.10
         ansible-version:
-          - 2.14.0rc1
-          - 2.13.5
-          - 2.12.10
           - 2.11.12
+          - 2.12.10
+          - 2.13.5
+          - 2.14.0rc1
         exclude:
           - python-version: 3.8
             ansible-version: 2.14.0rc1
