@@ -12,7 +12,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-          path: molecule_demo
+          path: ansible-role-molecule
       - name: Set up Python ${{ matrix.python-version }}
         uses: actions/setup-python@v3
         with:
@@ -21,8 +21,8 @@ jobs:
         run: |
           python3 -m pip install --upgrade pip
           python3 -m pip install -r requirements.txt
-        working-directory: molecule_demo
+        working-directory: ansible-role-molecule
       - name: Test with molecule
         run: |
           molecule test
-        working-directory: molecule_demo
+        working-directory: ansible-role-molecule
