@@ -12,6 +12,8 @@ jobs:
         python-version:
           - 3.8
           - 3.9
+        ansible-version:
+          - 2.13.5
 
     steps:
       - uses: actions/checkout@v3
@@ -25,8 +27,10 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip install ansible-core==2.13.5
+          pip install ansible-core==${{ matrix.ansible-version }}
           pip install -r requirements.txt
+          ansible --version
+          molecule --version
         working-directory: ansible-role-molecule
 
       - name: Test with molecule
